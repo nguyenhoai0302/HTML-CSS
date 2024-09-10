@@ -1,0 +1,17 @@
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* 5 equal columns */
+    grid-gap: 10px; /* Gap between boxes */
+    width: 500px; /* Fixed width for consistent box sizes */
+    margin: auto;
+}
+
+.grid-item {
+    background-color: red;
+    padding: 20px;
+    text-align: center;
+}
+
+.green {
+    background-color: green;
+}

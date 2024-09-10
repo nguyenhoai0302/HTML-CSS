@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>BẢNG ĐIỂM CỦA EM</h2>
+
+<form id="gradeForm">
+  <div>
+    <label for="semester1">Semester 1:</label><br>
+    <input type="number" id="semester1" name="semester1" placeholder="Enter semester 1"><br><br>
+  </div>
+
+  
+  <label for="semester2">Semester 2:</label><br>
+  <input type="number" id="semester2" name="semester2" placeholder="Enter semester 2"><br><br>
+  
+  <label for="year">Year:</label><br>
+  <select id="year" name="year">
+    <option value="1">Year 1</option>
+    <option value="2">Year 2</option>
+    <option value="3">Year 3</option>
+  </select><br><br>
+  
+  <label for="summerise">Summerise:</label><br>
+  <input type="text" id="summerise" name="summerise" readonly><br><br>
+  
+  <button type="button" onclick="calculateSummerise()">Ok</button>
+  <button type="reset">Cancel</button>
+</form>
+
+<p id="result"></p>
+
+<script>
+function calculateSummerise() {
+  // Lấy giá trị từ các ô input
+  var semester1 = parseFloat(document.getElementById("semester1").value);
+  var semester2 = parseFloat(document.getElementById("semester2").value);
+  var year = parseInt(document.getElementById("year").value);
+  
+  if (isNaN(semester1) || isNaN(semester2)) {
+    document.getElementById("result").innerHTML = "Vui lòng nhập đầy đủ điểm cho cả hai học kỳ.";
+    document.getElementById("result").style.color = "black";
+    return;
+  }
+
+  var summerise;
+  
+  // Tính summerise dựa trên năm học
+  switch (year) {
+    case 1:
+      summerise = (semester1 + semester2) / 2;
+      break;
+    case 2:
+      summerise = (semester1 + semester2 * 2) / 3;
+      break;
+    case 3:
+      summerise = (semester1 + semester2 * 3) / 4;
+      break;
+    default:
+      summerise = 0;
+  }
+
+  // Hiển thị summerise trong ô readonly
+  document.getElementById("summerise").value = summerise.toFixed(2);
+
+  // Kiểm tra xem có phải học sinh giỏi hay không
+  if (summerise >= 9) {
+    document.getElementById("result").innerHTML = "Học sinh giỏi";
+    document.getElementById("result").style.color = "red";
+  } else {
+    document.getElementById("result").innerHTML = "Bạn cần cố gắng thêm.";
+    document.getElementById("result").style.color = "black";
+  }
+}
+</script>
+
+</body>
+</html>

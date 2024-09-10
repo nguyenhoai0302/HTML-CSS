@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .color {
+            text-align: center;
+            margin-top: 60px;
+        }
+        button:hover {
+            background-color:black;
+            color: red;
+        }
+        img {
+            margin-left: 42%;
+	        margin-top: 40px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="color">
+        <button onclick="green()">Đèn Xanh</button>
+        <button onclick="red()">Đèn Đỏ</button>
+        <button onclick="yellow()">Đèn Vàng</button>
+    </div>
+    <div>
+        <img id="demo" src="green.png" alt="">
+    </div>
+    
+    
+    <script>
+        function green() {
+            document.getElementById("demo").src="green.png";
+        }
+        function red() {
+            document.getElementById("demo").src="red.png";
+        }
+        function yellow() {
+            document.getElementById("demo").src="yellow.png";
+        }
+    </script>
+</body>
+</html>
